@@ -43,9 +43,6 @@ def print_predictions(preds):
 def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
-        batch = tokenizer([str(cl[1])], return_tensors="tf")
-        gen = model.generate(**batch)
-        tr=tokenizer.batch_decode(gen, skip_special_tokens=True) 
         st.write(tr)
    # src_text = [
    # ">>tat<< this is a sentence in english that we want to translate to tatar",
@@ -70,9 +67,12 @@ model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
 
 model = TFMarianMTModel.from_pretrained(model_name)
 tokenizer = MarianTokenizer.from_pretrained(model_name)
+batch = tokenizer([str(cl[1])], return_tensors="tf")
+        gen = model.generate(**batch)
+        tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
+        st.write(tr)
 
-
-st.title('Классификация изображений с переводом на русский и татарский языки')
+st.title('Классификация изображений с переводом на разные языки')
 img = load_image()
 result = st.button('Распознать изображение')
 if result:
