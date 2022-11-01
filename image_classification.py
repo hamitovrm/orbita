@@ -2,11 +2,13 @@ import io
 import streamlit as st
 from PIL import Image
 import numpy as np
+
+from transformers import MarianMTModel, MarianTokenizer
+from transformers import pipeline
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-from transformers import TFMarianMTModel, TFMarianTokenizer
-from transformers import pipeline
+
 
 @st.cache(allow_output_mutation=True)
 def load_model():
