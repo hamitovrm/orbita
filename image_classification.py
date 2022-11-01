@@ -36,6 +36,7 @@ def print_predictions(preds):
         st.write(cl[1], cl[2])
 
 def print_translation(preds):
+    classes = decode_predictions(preds, top=3)[0]
     src_text = [
     ">>tat<< this is a sentence in english that we want to translate to tatar",
     ">>tat<< Sit down and eat soup.",
@@ -46,7 +47,7 @@ def print_translation(preds):
     translated = model.generate(**tokenizer(src_text, return_tensors="pt", padding=True))
     [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
     for cl in classes:
-        st.write(translated[1])
+        st.write('Заглушка')
 
 
 model = load_model()
