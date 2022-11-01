@@ -38,7 +38,7 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(cl[1], cl[2])
-        print_translation(str(cl[1]))
+        print_translation('hello')
 
 
 def print_translation(str_cl):
