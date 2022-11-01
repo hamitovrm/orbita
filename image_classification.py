@@ -37,7 +37,10 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(cl[1], cl[2])
-        
+        batch = tokenizer([str(cl[1])], return_tensors="tf")
+        gen = model.generate(**batch)
+        tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
+        st.write(str(tr))
 
 
 def print_translation(preds):
@@ -67,7 +70,7 @@ model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
 
 model = TFMarianMTModel.from_pretrained(model_name)
 tokenizer = MarianTokenizer.from_pretrained(model_name)
-batch = tokenizer([str(cl[1])], return_tensors="tf")
+batch = tokenizer([sample_text], return_tensors="tf")
 gen = model.generate(**batch)
 tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
 st.write(tr)
