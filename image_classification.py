@@ -5,8 +5,10 @@ import numpy as np
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-from transformers import MarianMTModel, MarianTokenizer
+#from transformers import MarianMTModel, MarianTokenizer
+from transformers import MarianTokenizer, TFMarianMTModel
 from transformers import pipeline
+
 
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -41,7 +43,9 @@ def print_predictions(preds):
 def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
-        tr=translator(str(cl[1]))
+        batch = tokenizer([str(cl[1])], return_tensors="tf")
+        gen = model.generate(**batch)
+        tr=tokenizer.batch_decode(gen, skip_special_tokens=True) 
         st.write(tr)
    # src_text = [
    # ">>tat<< this is a sentence in english that we want to translate to tatar",
@@ -58,7 +62,14 @@ model = load_model()
 #tokenizer = MarianTokenizer.from_pretrained(model_name)
 #model_tr = MarianMTModel.from_pretrained(model_name)
 
-translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
+#translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
+src = "en"  # source language
+trg = "ru"  # target language
+sample_text = "hello"
+model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
+
+model = TFMarianMTModel.from_pretrained(model_name)
+tokenizer = MarianTokenizer.from_pretrained(model_name)
 
 
 st.title('Классификация изображений с переводом на русский и татарский языки')
