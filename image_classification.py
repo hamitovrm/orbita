@@ -2,13 +2,11 @@ import io
 import streamlit as st
 from PIL import Image
 import numpy as np
-
-#from transformers import MarianMTModel, MarianTokenizer
-from transformers import pipeline
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-
+#from transformers import MarianMTModel, MarianTokenizer
+from transformers import pipeline
 
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -40,10 +38,11 @@ def print_predictions(preds):
 
 def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
+    translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
     for cl in classes:
         st.write('Заглушка')
-    translator = pipeline("translation_ru_to_en", "Helsinki-NLP/opus-mt-ru-en")
-    st.write(translator("Садись суп кушать. Хлеб будешь. Воды налей"))
+        tr=translator(str(cl[1]))
+        st.write(tr)
    # src_text = [
    # ">>tat<< this is a sentence in english that we want to translate to tatar",
    # ">>tat<< Sit down and eat soup.",
@@ -53,7 +52,7 @@ def print_translation(preds):
     
 
 
-#model = load_model()
+model = load_model()
 
 #model_name = "Helsinki-NLP/opus-mt-en-mul"
 #tokenizer = MarianTokenizer.from_pretrained(model_name)
