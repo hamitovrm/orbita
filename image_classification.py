@@ -35,10 +35,11 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(cl[1], cl[2])
+        
+
 
 def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
-    translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
     for cl in classes:
         tr=translator(str(cl[1]))
         st.write(tr)
@@ -57,6 +58,7 @@ model = load_model()
 #tokenizer = MarianTokenizer.from_pretrained(model_name)
 #model_tr = MarianMTModel.from_pretrained(model_name)
 
+translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
 
 
 st.title('Классификация изображений с переводом на русский и татарский языки')
