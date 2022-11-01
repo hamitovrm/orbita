@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
 #from transformers import MarianMTModel, MarianTokenizer
 from transformers import MarianTokenizer, TFMarianMTModel
-from transformers import pipeline
+#from transformers import pipeline
 
 
 @st.cache(allow_output_mutation=True)
