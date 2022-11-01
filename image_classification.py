@@ -5,7 +5,7 @@ import numpy as np
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-
+from transformers import MarianMTModel, MarianTokenizer
 
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -35,8 +35,22 @@ def print_predictions(preds):
     for cl in classes:
         st.write(cl[1], cl[2])
 
+def print_translation(preds):
+    src_text = [
+    ">>tat<< this is a sentence in english that we want to translate to tatar",
+    ">>tat<< Sit down and eat soup.",
+    ]   
+    model_name = "Helsinki-NLP/opus-mt-en-mul"
+    tokenizer = MarianTokenizer.from_pretrained(model_name)
+    model = MarianMTModel.from_pretrained(model_name)
+    translated = model.generate(**tokenizer(src_text, return_tensors="pt", padding=True))
+    [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
+    for cl in classes:
+        st.write(translated[1])
+
 
 model = load_model()
+
 
 st.title('Классификация изображений')
 img = load_image()
@@ -46,3 +60,4 @@ if result:
     preds = model.predict(x)
     st.write('**Результаты распознавания:**')
     print_predictions(preds)
+    print_translation(preds)
