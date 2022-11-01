@@ -70,10 +70,10 @@ model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
 
 model = TFMarianMTModel.from_pretrained(model_name)
 tokenizer = MarianTokenizer.from_pretrained(model_name)
-#batch = tokenizer([sample_text], return_tensors="tf")
-#gen = model.generate(**batch)
-#tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
-#st.write(tr)
+batch = tokenizer([sample_text], return_tensors="tf")
+gen = model.generate(**batch)
+tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
+st.write(tr)
 
 st.title('Классификация изображений с переводом на разные языки')
 img = load_image()
