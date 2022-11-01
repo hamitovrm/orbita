@@ -5,7 +5,7 @@ import numpy as np
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-#from transformers import MarianMTModel, MarianTokenizer
+from transformers import MarianMTModel, MarianTokenizer
 from transformers import pipeline
 
 @st.cache(allow_output_mutation=True)
@@ -40,7 +40,6 @@ def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
     translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
     for cl in classes:
-        st.write('Заглушка')
         tr=translator(str(cl[1]))
         st.write(tr)
    # src_text = [
