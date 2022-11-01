@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 
-from transformers import MarianMTModel, MarianTokenizer
+#from transformers import MarianMTModel, MarianTokenizer
 from transformers import pipeline
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
@@ -42,21 +42,22 @@ def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write('Заглушка')
-
-    src_text = [
-    ">>tat<< this is a sentence in english that we want to translate to tatar",
-    ">>tat<< Sit down and eat soup.",
-    ]   
-    translated = model_tr.generate(**tokenizer(src_text, return_tensors="pt", padding=True))
-    [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
+    translator = pipeline("translation_ru_to_en", "Helsinki-NLP/opus-mt-ru-en")
+    st.write(translator("Садись суп кушать. Хлеб будешь. Воды налей"))
+   # src_text = [
+   # ">>tat<< this is a sentence in english that we want to translate to tatar",
+   # ">>tat<< Sit down and eat soup.",
+   # ]   
+   # translated = model_tr.generate(**tokenizer(src_text, return_tensors="pt", padding=True))
+   # [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
     
 
 
-model = load_model()
+#model = load_model()
 
-model_name = "Helsinki-NLP/opus-mt-en-mul"
-tokenizer = MarianTokenizer.from_pretrained(model_name)
-model_tr = MarianMTModel.from_pretrained(model_name)
+#model_name = "Helsinki-NLP/opus-mt-en-mul"
+#tokenizer = MarianTokenizer.from_pretrained(model_name)
+#model_tr = MarianMTModel.from_pretrained(model_name)
 
 
 
