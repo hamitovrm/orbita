@@ -10,6 +10,16 @@ from tensorflow.keras.applications.efficientnet import preprocess_input, decode_
 #from typing import List
 #from transformers import pipeline
 
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-mul"
+headers = {"Authorization": f"Bearer {API_TOKEN}"}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+
 
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -38,7 +48,8 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
-    
+        output = query({"inputs": str(cl[1]).replace('_'," "),})
+        st.write(output)
 
 
       
