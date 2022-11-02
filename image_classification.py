@@ -43,6 +43,7 @@ def print_predictions(preds):
 
 
 def print_translation(str_cl):
+    str_cl.replace('_', '')
     batch = tokenizer([str_cl], return_tensors="tf")
     gen = model.generate(**batch)
     tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
