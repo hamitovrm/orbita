@@ -1,4 +1,5 @@
 import io
+import requests
 import streamlit as st
 from PIL import Image
 import numpy as np
@@ -7,12 +8,10 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
 
 
-import requests
-
 API_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru"
 headers = {"Authorization": f"Bearer {'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'}"}
 
-def query(payload):
+def translate(payload):
 	response = requests.post(API_URL, headers=headers, json=payload )
 	return response.json
 	
@@ -44,9 +43,9 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
-        output = query({"inputs": str(cl[1]).replace('_'," "),})
-        for o in output:
-             st.write(str(o['translation_text']))
+        trans = translate({"inputs": str(cl[1]).replace('_'," "),})
+        for tt in trans:
+             st.write(str(tt['translation_text']))
 
 
 model = load_model()
