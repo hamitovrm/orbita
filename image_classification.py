@@ -38,6 +38,7 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(cl[1], cl[2])
+        print_translation(str(cl[1]))
     
 
 
@@ -45,7 +46,7 @@ def print_translation(str_cl):
     batch = tokenizer([str_cl], return_tensors="tf")
     gen = model.generate(**batch)
     tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
-    st.write(str(tr))
+    st.write(str(tr[0]))
         
    # src_text = [
    # ">>tat<< this is a sentence in english that we want to translate to tatar",
@@ -83,4 +84,4 @@ if result:
     preds = model.predict(x)
     st.write('**Результаты распознавания:**')
     print_predictions(preds)
-    
+
