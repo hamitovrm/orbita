@@ -53,7 +53,7 @@ def print_predictions(preds):
         #"Русский:       "+tr_test[0]['translation_text']
         #"Татарский:     "+tr_test[1]['translation_text']
         for tt in trans_ta:
-             st.write(str(tt['translation_text']))
+             str(tt['translation_text'])
 
 
 model = load_model()
