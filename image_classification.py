@@ -9,7 +9,7 @@ from tensorflow.keras.applications.efficientnet import preprocess_input, decode_
 
 
 API_URL_ru = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru"
-API_URL_fr = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-fr"
+API_URL_ta = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-mul"
 headers = {"Authorization": f"Bearer {'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'}"}
 
 def translate(payload, API_URL):
@@ -47,8 +47,8 @@ def print_predictions(preds):
         trans_ru = translate({"inputs": str(cl[1]).replace('_'," "),}, API_URL_ru)
         for tt in trans_ru():
              st.write(str(tt['translation_text']))
-        trans_fr = translate({"inputs": str(cl[1]).replace('_'," "),}, API_URL_fr)
-        for tt in trans_fr():
+        trans_ta = translate({"inputs": ">>tat<< "+str(cl[1]).replace('_'," "),}, API_URL_ta)
+        for tt in trans_ta():
              st.write(str(tt['translation_text']))
 
 
