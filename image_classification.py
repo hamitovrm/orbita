@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
 
 
-API_URL_ru = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru"
+#API_URL_ru = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru"
 API_URL_ta = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-mul"
 headers = {"Authorization": f"Bearer {'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'}"}
 
@@ -44,9 +44,9 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
-        trans_ru = translate({"inputs": str(cl[1]).replace('_'," "),}, API_URL_ru)
-        for tt in trans_ru():
-             st.write(str(tt['translation_text']))
+        #trans_ru = translate({"inputs": str(cl[1]).replace('_'," "),}, API_URL_ru)
+        #for tt in trans_ru():
+        #     st.write(str(tt['translation_text']))
         trans_ta = translate({"inputs": ">>tat<< "+str(cl[1]).replace('_'," "),}, API_URL_ta)
         for tt in trans_ta():
              st.write(str(tt['translation_text']))
