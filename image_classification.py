@@ -48,7 +48,7 @@ def print_predictions(preds):
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
         output = query({"inputs": str(cl[1]).replace('_'," "),})
-        st.write(str(output))
+        st.write(output['translation_text'])
 
 
       
