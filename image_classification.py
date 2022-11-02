@@ -43,14 +43,14 @@ def print_predictions(preds):
 
 def print_translation(preds):
     classes = decode_predictions(preds, top=3)[0]
-     for cl in classes:
-        st.write(cl[1], cl[2])
-        str_cl=str(cl[1])
-        str_cl.replace('_', '')
-        batch = tokenizer([str_cl], return_tensors="tf")
-        gen = model.generate(**batch)
-        tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
-        st.write(str(tr[0]))
+    for cl in classes:
+           st.write(cl[1], cl[2])
+           str_cl=str(cl[1])
+           str_cl.replace('_', '')
+           batch = tokenizer([str_cl], return_tensors="tf")
+           gen = model.generate(**batch)
+           tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
+           st.write(str(tr[0]))
         
    # src_text = [
    # ">>tat<< this is a sentence in english that we want to translate to tatar",
