@@ -1,5 +1,2 @@
 streamlit
 tensorflow-cpu
-sentencepiece
-sacremoses
-transformers

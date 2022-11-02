@@ -6,8 +6,8 @@ from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
 #from transformers import MarianMTModel, MarianTokenizer
-from transformers import MarianTokenizer, TFMarianMTModel
-from typing import List
+#from transformers import MarianTokenizer, TFMarianMTModel
+#from typing import List
 #from transformers import pipeline
 
 
@@ -41,12 +41,7 @@ def print_predictions(preds):
     
 
 
-def print_translation(str_cl):
-    batch = tokenizer([str_cl], return_tensors="tf")
-    gen = model.generate(**batch)
-    tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
-    st.write(str(tr[1]))
-        
+      
    # src_text = [
    # ">>tat<< this is a sentence in english that we want to translate to tatar",
    # ">>tat<< Sit down and eat soup.",
@@ -63,17 +58,17 @@ model = load_model()
 #model_tr = MarianMTModel.from_pretrained(model_name)
 
 #translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
-src = "en"  # source language
-trg = "ru"  # target language
-sample_text = 'hello'
-model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
+#src = "en"  # source language
+#trg = "ru"  # target language
+#sample_text = 'hello'
+#model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
 
-model = TFMarianMTModel.from_pretrained(model_name)
-tokenizer = MarianTokenizer.from_pretrained(model_name)
-batch = tokenizer([sample_text], return_tensors="tf")
-gen = model.generate(**batch)
-tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
-st.write(tr[1])
+#model = TFMarianMTModel.from_pretrained(model_name)
+#tokenizer = MarianTokenizer.from_pretrained(model_name)
+#batch = tokenizer([sample_text], return_tensors="tf")
+#gen = model.generate(**batch)
+#tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
+#st.write(tr)
 
 st.title('Классификация изображений с переводом на разные языки')
 img = load_image()
