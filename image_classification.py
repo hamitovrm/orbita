@@ -44,7 +44,7 @@ def print_predictions(preds):
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
         trans = translate({"inputs": str(cl[1]).replace('_'," "),})
-        for tt in trans:
+        for tt in trans():
              st.write(str(tt['translation_text']))
 
 
