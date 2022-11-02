@@ -12,14 +12,13 @@ from tensorflow.keras.applications.efficientnet import preprocess_input, decode_
 
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-mul"
-headers = {"Authorization": f"Bearer {API_TOKEN}"}
+API_URL = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-ru"
+headers = {"Authorization": f"Bearer {'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'}"}
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
+	response = requests.post(API_URL, headers=headers, json=payload )
+	return response.json
 	
-
 
 @st.cache(allow_output_mutation=True)
 def load_model():
