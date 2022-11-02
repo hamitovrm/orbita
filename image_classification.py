@@ -37,7 +37,7 @@ def load_image():
 def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
-        st.write(str(cl[1]).replace('_',""), cl[2])
+        st.write(str(cl[1]).replace('_'," "), cl[2])
     
 
 
