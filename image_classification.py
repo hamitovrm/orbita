@@ -78,4 +78,5 @@ if result:
     preds = model.predict(x)
     st.write('**Результаты распознавания:**')
     print_predictions(preds)
-    
+    print_translation(preds)
+
