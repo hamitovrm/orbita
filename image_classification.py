@@ -50,7 +50,7 @@ def print_predictions(preds):
         en_text=str(cl[1]).replace('_'," ")
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text,],}, API_URL_ta),
         for tt in trans_ta:
-            st.write(str(tt))
+            st.write(tt['translation_text])
 
 
 model = load_model()
