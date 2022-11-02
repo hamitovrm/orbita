@@ -47,8 +47,9 @@ def print_predictions(preds):
         #trans_ru = translate({"inputs": str(cl[1]).replace('_'," "),}, API_URL_ru)
         #for tt in trans_ru():
         #     st.write(str(tt['translation_text']))
-        trans_ta = translate({"inputs": [">>rus<< "+str(cl[1]).replace('_'," "), ">>tat<< "+str(cl[1]).replace('_'," "),],}, API_URL_ta),
-        for tt in trans_ta():
+        en_text=str(cl[1]).replace('_'," ")
+        trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text,],}, API_URL_ta),
+        for tt in trans_ta:
              st.write(str(tt['translation_text']))
 
 
