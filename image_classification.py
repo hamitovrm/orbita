@@ -52,8 +52,9 @@ def print_predictions(preds):
         tr_test=tuple(trans_ta())
         #"Русский:       "+tr_test[0]['translation_text']
         #"Татарский:     "+tr_test[1]['translation_text']
-        for tt in trans_ta:
-             str(tt['translation_text'])
+	trans_ta
+        #for tt in trans_ta:
+        #     str(tt['translation_text'])
 
 
 model = load_model()
