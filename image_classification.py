@@ -51,7 +51,7 @@ def print_predictions(preds):
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
 	for tt in tr_test:
-            str(tt['translation_text'])
+	    str(tt['translation_text'])
         #"Русский:       "+tr_test[0]['translation_text']
         #"Татарский:     "+tr_test[1]['translation_text']
 	#trans_ta
