@@ -5,10 +5,7 @@ import numpy as np
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.efficientnet import preprocess_input, decode_predictions
-#from transformers import MarianMTModel, MarianTokenizer
-#from transformers import MarianTokenizer, TFMarianMTModel
-#from typing import List
-#from transformers import pipeline
+
 
 import requests
 
@@ -49,37 +46,10 @@ def print_predictions(preds):
         st.write(str(cl[1]).replace('_'," "), cl[2])
         output = query({"inputs": str(cl[1]).replace('_'," "),})
         for o in output:
-            print (o['translation_text'])
-
-
-      
-   # src_text = [
-   # ">>tat<< this is a sentence in english that we want to translate to tatar",
-   # ">>tat<< Sit down and eat soup.",
-   # ]   
-   # translated = model_tr.generate(**tokenizer(src_text, return_tensors="pt", padding=True))
-   # [tokenizer.decode(t, skip_special_tokens=True) for t in translated]
-    
+             st.write(str(o['translation_text']))
 
 
 model = load_model()
-
-#model_name = "Helsinki-NLP/opus-mt-en-mul"
-#tokenizer = MarianTokenizer.from_pretrained(model_name)
-#model_tr = MarianMTModel.from_pretrained(model_name)
-
-#translator = pipeline("translation_en_to_ru", "Helsinki-NLP/opus-mt-en-ru")
-#src = "en"  # source language
-#trg = "ru"  # target language
-#sample_text = 'hello'
-#model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
-
-#model = TFMarianMTModel.from_pretrained(model_name)
-#tokenizer = MarianTokenizer.from_pretrained(model_name)
-#batch = tokenizer([sample_text], return_tensors="tf")
-#gen = model.generate(**batch)
-#tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
-#st.write(tr)
 
 st.title('Классификация изображений с переводом на разные языки')
 img = load_image()
