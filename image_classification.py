@@ -44,7 +44,7 @@ def print_predictions(preds):
         tr_test=tuple(trans_ta())
         st.write(str(tr_test))
         for tt in tr_test:
-                st.write(str(tt['translation']))
+                st.write(str(tt['translation_text']))
       
 
 model = load_model()
