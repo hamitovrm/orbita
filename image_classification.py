@@ -52,7 +52,7 @@ def print_predictions(preds):
         #st.write(trans_ta)
         tr_test=tuple(trans_ta())
         for tt in tr_test:
-            st.write(str(tt['translation_text']))
+            st.write(str(tt))
       
 
 
