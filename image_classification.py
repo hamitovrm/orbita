@@ -44,15 +44,12 @@ def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
-        #trans_ru = translate({"inputs": str(cl[1]).replace('_'," "),}, API_URL_ru)
-        #for tt in trans_ru():
-        #     st.write(str(tt['translation_text']))
         en_text=str(cl[1]).replace('_'," ")
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
         #st.write(str(tr_test))
         for tt in tr_test:
-            st.write(str(tt['translation']))
+                st.write(str(tt['translation']))
       
 
 
