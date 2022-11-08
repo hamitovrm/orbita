@@ -56,6 +56,5 @@ if result:
     x = preprocess_image(img)
     preds = model.predict(x)
     st.write('**Результаты распознавания:**')
-    #st.write(str(preds))
-    #print_predictions(preds)
+    print_predictions(preds)
 
