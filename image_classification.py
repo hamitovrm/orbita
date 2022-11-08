@@ -37,10 +37,9 @@ def load_image():
 def print_predictions(preds):
     classes = decode_predictions(preds, top=3)[0]
     for cl in classes:
-        st.write(str(cl[1]).replace('_',' '), cl[2])
         en_text=str(cl[1]).replace('_',' ')
-        st.write('Eng:', str(en_text))
-        en_text='hello'
+        st.write('Eng:', str(en_text), , cl[2])
+        #en_text='hello'
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
         for tt in tr_test:
