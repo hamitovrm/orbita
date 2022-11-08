@@ -39,7 +39,7 @@ def print_predictions(preds):
     for cl in classes:
         en_text=str(cl[1]).replace('_',' ')
         st.write('Eng:', str(en_text), cl[2])
-        #en_text='hello'
+        en_text='hello'+en_text
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
         for tt in tr_test:
