@@ -39,11 +39,11 @@ def print_predictions(preds):
     for cl in classes:
         st.write(str(cl[1]).replace('_'," "), cl[2])
         en_text=str(cl[1]).replace('_'," ")
-        trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
-        tr_test=tuple(trans_ta())
+        #trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
+        #tr_test=tuple(trans_ta())
         #st.write(str(tr_test))
-        for tt in tr_test:
-                st.write(str(tt['translation']))
+        #for tt in tr_test:
+        #        st.write(str(tt['translation']))
       
 
 model = load_model()
@@ -55,6 +55,6 @@ if result:
     x = preprocess_image(img)
     preds = model.predict(x)
     st.write('**Результаты распознавания:**')
-    st.write(str(preds))
+    #st.write(str(preds))
     #print_predictions(preds)
 
