@@ -39,12 +39,12 @@ def print_predictions(preds):
     for cl in classes:
         st.write(str(cl[1]).replace('_',' '), cl[2])
         en_text=str(cl[1]).replace('_',' ')
-	st.write(str('Eng:', en_text)
+        st.write(str('Eng:', en_text)
         en_text='hello'
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
         for tt in tr_test:
-                st.write(str(tt['translation_text']))
+            st.write(str(tt['translation_text']))
       
 
 model = load_model()
