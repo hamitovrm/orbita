@@ -16,7 +16,7 @@ def translate(payload, API_URL):
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    return EfficientNetB0(weights='imagenet')
+    return EfficientNetB7(weights='imagenet')
 
 def preprocess_image(img):
     img = img.resize((224, 224))
