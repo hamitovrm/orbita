@@ -19,8 +19,8 @@ def load_model():
     return EfficientNetB7(weights='imagenet')
 
 def preprocess_image(img):
-    img = img.resize((600, 600))
-    x = image.img_to_array(img)
+    imgr = img.resize((600, 600))
+    x = image.img_to_array(imgr)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
     return x
