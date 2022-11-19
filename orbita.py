@@ -41,17 +41,12 @@ def print_predictions(preds):
         en_text=''+en_text
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
-        st.write(cl[2], 'eng: ', str(en_text),\
-        'rus: ', str(tr_test[0]['translation_text'],)\
-        'tat: ', str(tr_test[1]['translation_text']),\
-        'deu: ', str(tr_test[2]['translation_text']))
-        #for tt in tr_test:
-            #st.write(str(tt['translation_text']))
-      
+        st.write(cl[2], 'eng: ', str(en_text),'rus: ', str(tr_test[0]['translation_text']),'tat: ', str(tr_test[1]['translation_text']),'deu: ', str(tr_test[2]['translation_text']))
+     
 
 model = load_model()
 
-st.title('Классификация изображений с переводом на разные языки')
+st.title('Распознавание объектов с переводом на три языка')
 img = load_image()
 result = st.button('Распознать изображение')
 if result:
