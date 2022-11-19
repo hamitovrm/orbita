@@ -3,6 +3,6 @@ EXPOSE 8501
 WORKDIR /app
 COPY requirements.txt ./requirements.txt
 RUN pip3 install -r requirements.txt
-COPY image_classification.py .
+COPY orbita.py .
 USER nobody
-CMD ["streamlit", "run", "image_classification.py"]
+CMD ["streamlit", "run", "orbita.py"]
