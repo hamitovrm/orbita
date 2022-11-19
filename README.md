@@ -1,11 +1,12 @@
 #  Object Reconginion Bi Translation Application
 
-[ORBiTA](https://orbita.streamlit.app/) - Web-приложение для распознавания объектов на изображении и параллельного еревода на два языка: русский, татарский. 
+[ORBiTA](https://orbita.streamlit.app/) - Web-приложение для распознавания объектов на изображении и параллельного перевода на два языка: русский, татарский. 
 
 Используются библиотеки:
 
 - [TensorFlow](https://www.tensorflow.org/).
 - [Streamlit](https://streamlit.io/).
+- [Requests](https://requests.readthedocs.io/en/latest/)
 
 Для распознавания изображений используется нейронная сеть [EfficientNet7](https://keras.io/api/applications/efficientnet/#efficientnetb7-function). Подробности о модели в статье:
 
