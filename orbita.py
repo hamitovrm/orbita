@@ -61,7 +61,8 @@ def print_predictions(preds):
 
 model = load_model()
 
-st.title('Object Reconginion Bi Translation Application')
+st.title('ORBiTA')
+st.write('Object Reconginion Bi Translation Application')
 img = load_image()
 result = st.button('Распознать изображение')
 if result:
