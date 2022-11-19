@@ -17,4 +17,5 @@
 
 Для перевода распознаных объектов на разные языки используется модель Language Technology Research Group at the University of Helsinki [Helsinki-NLP/opus-mt-en-mul](https://huggingface.co/Helsinki-NLP/opus-mt-en-mul?text=My+name+is+Sarah+and+I+live+in+London)
 
+Приложение развернуто по адресу https://orbita.streamlit.app/
 
