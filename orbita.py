@@ -44,7 +44,7 @@ def print_predictions(preds):
         col1, col2, col3, col4, col5 = st.columns(5)
 
         with col1:
-          st.header("Вероятность")
+          st.header(" ")
           st.write(str(int(cl[2]*100)))
 
         with col2:
