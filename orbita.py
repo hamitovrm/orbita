@@ -1,7 +1,7 @@
 import io
 import requests
 import streamlit as st
-from numpy as np
+import numpy as np
 from PIL import Image
 from tensorflow.keras.applications import EfficientNetB7
 from tensorflow.keras.preprocessing import image
