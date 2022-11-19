@@ -52,7 +52,7 @@ def print_predictions(preds):
           st.write(str(en_text))
 
         with col3:
-           st.header("rus")
+          st.header("rus")
           st.write(str(tr_test[0]["translation_text"]))
 
         with col4:
