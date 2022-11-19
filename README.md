@@ -13,7 +13,7 @@
 Для распознавания изображений используется нейронная сеть [EfficientNet7](https://keras.io/api/applications/efficientnet/#efficientnetb7-function). Подробности о модели в статьях:
 
 - [Новые архитектуры нейросетей](https://habr.com/ru/post/498168/#EfficientNet).
-[Что такое модель EfficientNet] https://russianblogs.com/article/97411642918/
+[Что такое модель EfficientNet](https://russianblogs.com/article/97411642918/)
 
 Для перевода распознаных объектов на разные языки используется модель [Language Technology Research Group at the University of Helsinki](https://huggingface.co/Helsinki-NLP)
 
