@@ -42,18 +42,23 @@ def print_predictions(preds):
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
         col1, col2, col3, col4, col5 = st.columns(5)
+
         with col1:
           st.header("Вероятность")
-          st.image(str(int(cl[2]*100))
+          st.image(str(int(cl[2]*100)))
+
         with col2:
           st.header("eng")
           st.image(str(en_text))
+
         with col3:
            st.header("rus")
           st.image(str(tr_test[0]["translation_text"]))
+
         with col4:
           st.header("tat")
           st.image(str(tr_test[1]["translation_text"]))
+
         with col5:
           st.header("deu")
           st.image(str(tr_test[2]["translation_text"]))
