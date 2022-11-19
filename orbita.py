@@ -61,7 +61,7 @@ def print_predictions(preds):
 
 model = load_model()
 
-st.title('Распознавание объектов с переводом на разные языки')
+st.title('Object Reconginion Bi Translation Application')
 img = load_image()
 result = st.button('Распознать изображение')
 if result:
