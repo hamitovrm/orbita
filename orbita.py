@@ -41,7 +41,7 @@ def print_predictions(preds):
         en_text=''+en_text
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
-        col1, col2, col3, col4 = st.columns(5)
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
           st.subheader(" ")
