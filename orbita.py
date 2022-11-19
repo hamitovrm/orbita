@@ -41,7 +41,7 @@ def print_predictions(preds):
         en_text=''+en_text
         trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
-        st.write(cl[2], 'eng: ', str(en_text),'rus: ', str(tr_test[0]['translation_text']),'tat: ', str(tr_test[1]['translation_text']),'deu: ', str(tr_test[2]['translation_text']))
+        st.write(str(int(cl[2]*100)), '\teng: ', str(en_text),'\trus: ', str(tr_test[0]['translation_text']),'\ttat: ', str(tr_test[1]['translation_text']),'\tdeu: ', str(tr_test[2]['translation_text']))
      
 
 model = load_model()
