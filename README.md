@@ -7,6 +7,7 @@
 - [TensorFlow](https://www.tensorflow.org/).
 - [Streamlit](https://streamlit.io/).
 - [Requests](https://requests.readthedocs.io/en/latest/)
+- [NumPy](https://numpy.org/)
 
 Для распознавания изображений используется нейронная сеть [EfficientNet7](https://keras.io/api/applications/efficientnet/#efficientnetb7-function). Подробности о модели в статье:
 
