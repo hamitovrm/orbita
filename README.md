@@ -1,14 +1,16 @@
-# Пример Web-приложения искусственного интеллекта для онлайн-курса DevOps
+#  Object Reconginion Bi Translation Application
 
-Web-приложение для классификации изображений. Используются библиотеки:
+[ORBiTA](https://orbita.streamlit.app/) - Web-приложение для распознавания объектов на изображении и параллельного еревода на два языка: русский, татарский. 
+
+Используются библиотеки:
 
 - [TensorFlow](https://www.tensorflow.org/).
 - [Streamlit](https://streamlit.io/).
 
-Для распознавания изображений используется нейронная сеть [EfficientNetV2B0](https://keras.io/api/applications/efficientnet_v2/#efficientnetv2b0-function). Подробности о модели в статье:
+Для распознавания изображений используется нейронная сеть [EfficientNet7](https://keras.io/api/applications/efficientnet/#efficientnetb7-function). Подробности о модели в статье:
 
-- [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](https://arxiv.org/abs/1905.11946).
+- [Новые архитектуры нейросетей](https://habr.com/ru/post/498168/#EfficientNet).
 
-C переводом распознаных объектов
+Для перевода распознаных объектов на разные языки используется модель [Language Technology Research Group at the University of Helsinki](https://huggingface.co/Helsinki-NLP)
 
-https://hamitovrm-streamlit-hrm-app-image-classification-fpbujf.streamlitapp.com/
+
