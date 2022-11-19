@@ -45,23 +45,23 @@ def print_predictions(preds):
 
         with col1:
           st.header("Вероятность")
-          st.image(str(int(cl[2]*100)))
+          st.write(str(int(cl[2]*100)))
 
         with col2:
           st.header("eng")
-          st.image(str(en_text))
+          st.write(str(en_text))
 
         with col3:
            st.header("rus")
-          st.image(str(tr_test[0]["translation_text"]))
+          st.write(str(tr_test[0]["translation_text"]))
 
         with col4:
           st.header("tat")
-          st.image(str(tr_test[1]["translation_text"]))
+          st.write(str(tr_test[1]["translation_text"]))
 
         with col5:
           st.header("deu")
-          st.image(str(tr_test[2]["translation_text"]))
+          st.write(str(tr_test[2]["translation_text"]))
 
 model = load_model()
 
