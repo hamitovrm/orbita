@@ -44,23 +44,23 @@ def print_predictions(preds):
         col1, col2, col3, col4, col5 = st.columns(5)
 
         with col1:
-          st.header(" ")
-          st.write(str(int(cl[2]*100)))
+          st.subheader(" ")
+          st.write(str(int(cl[2]*100))+"%")
 
         with col2:
-          st.header("eng")
+          st.subheader("eng")
           st.write(str(en_text))
 
         with col3:
-          st.header("rus")
+          st.subheader("rus")
           st.write(str(tr_test[0]["translation_text"]))
 
         with col4:
-          st.header("tat")
+          st.subheader("tat")
           st.write(str(tr_test[1]["translation_text"]))
 
         with col5:
-          st.header("deu")
+          st.subheader("deu")
           st.write(str(tr_test[2]["translation_text"]))
 
 model = load_model()
