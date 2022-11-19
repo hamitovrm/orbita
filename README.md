@@ -15,6 +15,6 @@
 - [Новые архитектуры нейросетей](https://habr.com/ru/post/498168/#EfficientNet).
 [Что такое модель EfficientNet](https://russianblogs.com/article/97411642918/)
 
-Для перевода распознаных объектов на разные языки используется модель [Language Technology Research Group at the University of Helsinki](https://huggingface.co/Helsinki-NLP)
+Для перевода распознаных объектов на разные языки используется модель Language Technology Research Group at the University of Helsinki [Helsinki-NLP/opus-mt-en-mul](https://huggingface.co/Helsinki-NLP/opus-mt-en-mul?text=My+name+is+Sarah+and+I+live+in+London)
 
 
