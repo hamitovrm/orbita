@@ -39,9 +39,9 @@ def print_predictions(preds):
     for cl in classes:
         en_text=str(cl[1]).replace('_',' ')
         en_text=''+en_text
-        trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text, ">>deu<< "+en_text,],}, API_URL_ta)
+        trans_ta = translate({"inputs": [">>rus<< "+en_text, ">>tat<< "+en_text,],}, API_URL_ta)
         tr_test=tuple(trans_ta())
-        col1, col2, col3, col4, col5 = st.columns(5)
+        col1, col2, col3, col4 = st.columns(5)
 
         with col1:
           st.subheader(" ")
@@ -59,9 +59,6 @@ def print_predictions(preds):
           st.subheader("tat")
           st.write(str(tr_test[1]["translation_text"]))
 
-        with col5:
-          st.subheader("deu")
-          st.write(str(tr_test[2]["translation_text"]))
 
 model = load_model()
 
