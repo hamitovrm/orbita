@@ -14,7 +14,7 @@ def translate(payload, API_URL):
 	response = requests.post(API_URL, headers=headers, json=payload )
 	return response.json
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model():
     return EfficientNetB7(weights='imagenet')
 
